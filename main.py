@@ -13,7 +13,7 @@ import asyncio
 from fastapi_poe.types import ProtocolMessage
 from fastapi_poe.client import get_bot_response, get_final_response, QueryRequest
 
-# from http.server import BaseHTTPRequestHandler
+from http.server import BaseHTTPRequestHandler
 
 file_path = os.path.abspath(sys.argv[0])
 file_dir = os.path.dirname(file_path)
@@ -110,7 +110,3 @@ async def websocket_endpoint(websocket: WebSocket):
         await websocket.send_text(errmsg)
     finally:
         await websocket.close()
-
-
-if __name__ == '__main__':
-    uvicorn.run(app, host="0.0.0.0")
